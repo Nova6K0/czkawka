@@ -1,30 +1,34 @@
 # Core
 core_similarity_original = Original
-core_similarity_very_high = Muy alta
+core_similarity_very_high = Muy Alta
 core_similarity_high = Alta
-core_similarity_medium = Medio
-core_similarity_small = Pequeño
-core_similarity_very_small = Muy pequeño
-core_similarity_minimal = Mínimo
-core_cannot_open_dir = No se puede abrir el directorio { $dir }, razón { $reason }
-core_cannot_read_entry_dir = No se puede leer la entrada en directorio { $dir }, razón { $reason }
-core_cannot_read_metadata_dir = No se pueden leer metadatos en el directorio { $dir }, razón { $reason }
-core_file_not_utf8_name = El archivo { $name } no tiene un nombre UTF-8 válido (algunos caracteres pueden no mostrarse)
-core_file_modified_before_epoch = El archivo { $name } parece ser modificado antes de Unix Epoch
-core_folder_modified_before_epoch = La carpeta { $name } parece ser modificada antes del Epoch Unix
-core_file_no_modification_date = No se puede obtener la fecha de modificación del archivo { $name }, razón { $reason }
-core_folder_no_modification_date = No se puede obtener la fecha de modificación de la carpeta { $name }, razón { $reason }
-core_missing_no_chosen_included_directory = Debe proporcionarse al menos un directorio
-core_directory_wildcard_no_supported = Directorios: Los comodines en la ruta no son compatibles, ignorando { $path }
-core_directory_relative_path = Directorios: No se admite la ruta relativa, ignorando { $path }
-core_directory_must_exists = Directorios: La ruta de la carpeta debe salir, ignorando { $path }
-core_directory_must_be_directory = Directorios: La ruta proporcionada debe apuntar al directorio, ignorando { $path }
-core_included_directory_zero_valid_directories = ERROR del directorio incluido: No se ha encontrado ni una ruta correcta a incluida que es necesaria
-core_excluded_directory_pointless_slash = Directorios: Excluyendo / es inútil, ya que no se analizarán archivos
-core_directory_overlap = Directorios: Todos los directorios para buscar superposiciones con directorios excluidos
-core_directory_unable_to_get_device_id = Directorios: No se puede obtener el id del dispositivo de la carpeta { $path }
-core_ffmpeg_not_found = No se puede encontrar la instalación correcta de FFmpeg
-core_ffmpeg_not_found_windows = Asegúrese de que ffmpeg.exe y ffprobe.exe están disponibles en PATH o se colocan directamente en la misma carpeta donde es ejecutable la aplicación
-core_ffmpeg_missing_in_snap = Los Videos Similares no funcionan actualmente con el snap, si quieres ayuda mira - { $url }
-core_saving_to_cache = Guardado en el archivo { $number } entradas de caché
-core_loading_from_cache = Cargado desde { $number } entradas de caché
+core_similarity_medium = Media
+core_similarity_small = Pequeña
+core_similarity_very_small = Muy pequeña
+core_similarity_minimal = Mínima
+
+core_cannot_open_dir = No se ha podido abrir el directorio {$dir}, problema {$reason}
+core_cannot_read_entry_dir = No se ha podido leer la entrada en el directorio {$dir}, problema {$reason}
+core_cannot_read_metadata_dir = No se ha podido leer los metadatos en el directorio {$dir}, problema {$reason}
+core_file_not_utf8_name = El archivo {$name} no tiene un nombre UTF-8 válido (puede que algunos caracteres no se vean)
+core_file_modified_before_epoch = El archivo {$name} parece haber sido modificado antes que la marca de tiempo Epoch de Unix
+core_folder_modified_before_epoch = La carpeta {$name} parece haber sido modificado antes que la marca de tiempo Epoch de Unix
+core_file_no_modification_date = No ha sido posible actualizar la fecha del archivo {$name}, problema {$reason}
+core_folder_no_modification_date = No ha sido posible actualizar la fecha de la carpeta {$name}, problema {$reason}
+
+core_missing_no_chosen_included_directory = Se debe añadir, al menos, un directorio
+core_directory_wildcard_no_supported = Directorios: Los comodines no están soportados al usar rutas, ignorando { $path }
+core_directory_relative_path = Directorios: Las rutas relativas no están soportadas, ignorando { $path }
+core_directory_must_exists = Directorios: La carpeta dada debe existir en la ruta, ignorando { $path }
+core_directory_must_be_directory = Directorios: La ruta dada no apunta a un directorio válido, ignorando { $path }
+core_included_directory_zero_valid_directorios = Error de Inclusión de Directorio: Se requiere al menos una ruta válida
+core_excluded_directory_pointless_slash = Directorios: No tiene sentido excluir / ya que así no se escaneará ningún archivo
+core_directory_overlap = Directorios: Los directorios a buscar, se superponen con los directorios excluidos dados
+core_directory_unable_to_get_device_id = Directorios: Se ha producido un error al intentar encontrar el ID del dispositivo en { $path }
+
+core_ffmpeg_not_found = No ha sido podido posible encontrar una instalación válida de FFmpeg
+core_ffmpeg_not_found_windows = Asegúrese de que los archivos ffmpeg.exe y ffprobe.exe estén en la ruta dada, o bien en la misma carpeta que la aplicación
+core_ffmpeg_missing_in_snap = La búsqueda de Videos Similares no funciona bien con snap, si necesitas ayuda, ve a - { $url }
+
+core_saving_to_cache = Se han guardado { $number } entradas en el archivo caché
+core_loading_from_cache = Se han cargado { $number } entradas en el archivo caché
