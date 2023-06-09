@@ -31,9 +31,9 @@ duplicate_hash_type_tooltip =
     
     Blake3 - función de hash criptográfica. Se usa como algoritmo hash predeterminado porque es muy rápido.
     
-    CRC32 - función hash simple. Debe ser más rápido que Blake3, pero probablemente tenga algunas colisiones muy raras.
+    CRC32 - función hash simple. Es más rápido que Blake3, pero a veces provoca colisiones.
     
-    XXH3 - muy similar en caso de rendimiento y calidad de hash a Blake3 (pero no criptográfico). Por lo que tales modos pueden ser fácilmente usados.
+    XXH3 - muy parecido en rendimiento y calidad de hash a Blake3 (sin ser criptográfico). Lo que permite intercambiar ambos modos de forma fácil.
 duplicate_check_method_tooltip =
     Por ahora, el kawka ofrece tres tipos de métodos para encontrar duplicados por:
     
@@ -41,19 +41,19 @@ duplicate_check_method_tooltip =
     
     Tamaño - Encuentra archivos con el mismo tamaño.
     
-    Hash - Encuentra archivos con el mismo contenido. Este modo molesta el archivo y luego compara este hash para encontrar duplicados. Este modo es la forma más segura de encontrar duplicados. La aplicación utiliza mucho caché, por lo que segundo y más análisis de los mismos datos debe ser mucho más rápido que el primero.
+    Hash - Encuentra archivos con el mismo contenido. Este modo identifica el código hash del archivo y luego compara este para encontrar duplicados. Este modo es la forma más segura de encontrar duplicados. La aplicación utiliza mucho caché, por lo que segundo y más análisis de los mismos datos debe ser mucho más rápido que el primero.
 image_hash_size_tooltip =
     Cada imagen comprobada produce un hash especial que se puede comparar entre sí, y la pequeña diferencia entre ellas significa que estas imágenes son similares.
     
-    El tamaño de 8 hash es bastante bueno para encontrar imágenes que son poco similares a las originales. Con un conjunto más grande de imágenes(>1000) producirá una gran cantidad de falsos positivos, así que recomiendo usar para tal cantidad mayor de tamaño de hash.
+    Un hash de 8 bits es bueno con pequeños grupos de imágenes. Pero con grupos mayores (>1000) producirá una gran cantidad de falsos positivos, por eso se recomienda usar un hash de más bits.
     
-    16 es el tamaño predeterminado del hash, lo cual es bastante bueno entre encontrar incluso un poco de imágenes similares y tener una pequeña cantidad de colisiones hash.
+    El hash de 16 bits es el tamaño predeterminado, ya que produce pocas colisiones, en grupos grandes de imágenes.
     
-    32 y 64 hash sólo encuentra imágenes muy similares, pero casi no debería tener falsos positivos (quizás excepto algunas imágenes con canal alfa).
+    Si se usa un hash de 32 bits o 64 bits encontrará solamente imágenes muy parecidas. Pero no tendrá apenas falsos positivos (excepto quizá, en imágenes con canal alfa).
 image_resize_filter_tooltip =
-    Para calcular el hash de la imagen, primero la librería debe redimensionarlo.
+    Para calcular el hash de la imagen, primero la biblioteca debe redimensionarlo.
     
-    Dependiendo del algoritmo elegido, la imagen resultante usada para calcular el hash puede parecer poco diferente.
+    Dependiendo del algoritmo ecogido, la imagen resultante usada para calcular el hash podría ser un poco diferente.
     
     El algoritmo más rápido de usar, pero también uno que da los peores resultados es más cercano, está habilitada de forma predeterminada, ya que con un tamaño hash de 16x16, de menor calidad no es realmente visible.
     
@@ -61,14 +61,14 @@ image_resize_filter_tooltip =
 image_hash_alg_tooltip =
     Los usuarios pueden elegir uno de los muchos algoritmos de cálculo del hash.
     
-    Cada uno tiene puntos fuertes y débiles y a veces dará mejores y a veces peores resultados para diferentes imágenes.
+    Cada uno tiene puntos fuertes y débiles, a veces dará mejores y otras veces peores resultados para diferentes imágenes.
     
     Así que, para determinar la mejor para ti, se requiere una prueba manual.
 big_files_mode_combobox_tooltip = Permite buscar archivos más pequeños/mayores
 big_files_mode_label = Archivos marcados
 big_files_mode_smallest_combo_box = El más pequeño
-big_files_mode_biggest_combo_box = El Bigote
-main_notebook_duplicates = Duplicar archivos
+big_files_mode_biggest_combo_box = El más grande
+main_notebook_duplicates = Archivos duplicados
 main_notebook_empty_directories = Directorios vacíos
 main_notebook_big_files = Archivos grandes
 main_notebook_empty_files = Archivos vacíos
@@ -84,7 +84,7 @@ main_tree_view_column_folder_name = Nombre de carpeta
 main_tree_view_column_path = Ruta
 main_tree_view_column_modification = Fecha de modificación
 main_tree_view_column_size = Tamaño
-main_tree_view_column_similarity = Similaridad
+main_tree_view_column_similarity = Parecido
 main_tree_view_column_dimensions = Dimensiones
 main_tree_view_column_title = Título
 main_tree_view_column_artist = Artista
@@ -106,7 +106,7 @@ main_label_min_size = Mínimo
 main_label_max_size = Máx
 main_label_shown_files = Número de archivos mostrados
 main_label_resize_algorithm = Redimensionar algoritmo
-main_label_similarity = Similarity{ " " }
+main_label_similarity = Parecido{ " " }
 main_check_box_broken_files_audio = Sonido
 main_check_box_broken_files_pdf = Pdf
 main_check_box_broken_files_archive = Archivar
@@ -141,7 +141,7 @@ upper_manual_add_excluded_button_tooltip =
     /home/roman;/home/krokiet añadirá dos directorios /home/roman y /home/keokiet
 upper_add_excluded_button_tooltip = Añadir directorio para ser excluido en la búsqueda.
 upper_remove_excluded_button_tooltip = Eliminar directorio de excluidos.
-upper_notebook_items_configuration = Configuración de artículos
+upper_notebook_items_configuration = Configuración de objetos
 upper_notebook_excluded_directories = Directorios excluidos
 upper_notebook_included_directories = Directorios incluidos
 upper_allowed_extensions_tooltip =
@@ -151,7 +151,7 @@ upper_allowed_extensions_tooltip =
     
     Ejemplo de uso ".exe, IMAGE, VIDEO, .rar, 7z" - esto significa que imágenes (e. . jpg, png), videos (ej: avi, mp4), archivos exe, rar, y 7z serán escaneados.
 upper_excluded_items_tooltip =
-    Los artículos excluidos deben contener * comodín y deben estar separados por comas.
+    Los objetos excluidos deben contener * comodín y deben estar separados por comas.
     Esto es más lento que los Directorios Excluidos, así que úselo con cuidado.
 upper_excluded_items = Elementos excluidos:
 upper_allowed_extensions = Extensiones permitidas:
@@ -159,14 +159,14 @@ upper_allowed_extensions = Extensiones permitidas:
 popover_select_all = Seleccionar todo
 popover_unselect_all = Deseleccionar todo
 popover_reverse = Invertir selección
-popover_select_all_except_oldest = Seleccionar todo excepto más antiguo
+popover_select_all_except_oldest = Seleccionar todo excepto el más antiguo
 popover_select_all_except_newest = Seleccionar todo excepto el más reciente
 popover_select_one_oldest = Seleccione uno más antiguo
 popover_select_one_newest = Seleccione un nuevo
 popover_select_custom = Seleccionar personalizado
 popover_unselect_custom = Deseleccionar personalizado
-popover_select_all_images_except_biggest = Seleccionar todo excepto mayor
-popover_select_all_images_except_smallest = Seleccionar todo excepto menor
+popover_select_all_images_except_biggest = Seleccionar todo excepto el más grande
+popover_select_all_images_except_smallest = Seleccionar todo excepto el más pequeño
 popover_custom_path_check_button_entry_tooltip =
     Seleccionar registros por ruta.
     
@@ -252,7 +252,7 @@ about_donation_button_tooltip = Enlace a la página de donación.
 about_instruction_button_tooltip = Enlace a la página de instrucciones.
 about_translation_button_tooltip = Enlace a la página de Crowdin con traducciones de aplicaciones. Oficialmente se admiten polaco e inglés.
 about_repository_button = Repositorio
-about_donation_button = Donación
+about_donation_button = Donar
 about_instruction_button = Instrucción
 about_translation_button = Traducción
 # Header
@@ -281,7 +281,7 @@ settings_confirm_deletion_button_tooltip = Mostrar el diálogo de confirmación 
 settings_confirm_link_button_tooltip = Mostrar el diálogo de confirmación al hacer clic en el botón hard/symlink.
 settings_confirm_group_deletion_button_tooltip = Mostrar el diálogo de advertencia al intentar eliminar todos los registros del grupo.
 settings_show_text_view_button_tooltip = Mostrar el panel de texto en la parte inferior de la interfaz de usuario.
-settings_use_cache_button_tooltip = Usar caché de archivos.
+settings_use_cache_button_tooltip = Usar almacenamiento caché.
 settings_save_also_as_json_button_tooltip = Guardar caché en formato JSON (legible por seres humanos). Es posible modificar su contenido. La caché de este archivo será leída automáticamente por la aplicación si la caché del formato binario (con la extensión binaria) no se encuentra.
 settings_use_trash_button_tooltip = Mueve archivos a la papelera en su lugar eliminándolos permanentemente.
 settings_language_label_tooltip = Idioma para la interfaz de usuario.
@@ -307,14 +307,14 @@ settings_multiple_delete_outdated_cache_checkbutton_tooltip =
 settings_notebook_general = General
 settings_notebook_duplicates = Duplicados
 settings_notebook_images = Imágenes similares
-settings_notebook_videos = Vídeo similar
+settings_notebook_videos = Vídeos similares
 
 ## Multiple - settings used in multiple tabs
 
 settings_multiple_image_preview_checkbutton_tooltip = Muestra la vista previa en el lado derecho (al seleccionar un archivo de imagen).
 settings_multiple_image_preview_checkbutton = Mostrar vista previa de la imagen
 settings_multiple_clear_cache_button_tooltip =
-    Limpiar manualmente la caché de entradas desactualizadas.
+    Limpiar manualmente las entradas caché desactualizadas.
     Esto solo debe utilizarse si se ha desactivado la limpieza automática.
 settings_multiple_clear_cache_button = Eliminar resultados desactualizados de la caché de imágenes
 
@@ -342,9 +342,9 @@ settings_duplicates_minimal_size_cache_prehash_label = Tamaño mínimo de archiv
 
 ## Saving/Loading settings
 
-settings_saving_button_tooltip = Guardar la configuración de configuración actual en el archivo.
-settings_loading_button_tooltip = Cargar los ajustes desde el archivo y reemplazar la configuración actual con ellos.
-settings_reset_button_tooltip = Restablecer la configuración actual a la predeterminada.
+settings_saving_button_tooltip = Guardar la configuración actual en un archivo.
+settings_loading_button_tooltip = Cargar los ajustes desde un archivo y reemplazar la configuración actual.
+settings_reset_button_tooltip = Restablecer la configuración actual, predeterminada.
 settings_saving_button = Guardar configuración
 settings_loading_button = Cargar configuración
 settings_reset_button = Restablecer configuración
@@ -363,22 +363,22 @@ settings_folder_settings_open_tooltip =
     Abrir la carpeta donde se almacena la configuración de Czkawka.
     
     ADVERTENCIA: Modificar manualmente la configuración puede romper su flujo de trabajo.
-settings_folder_cache_open = Abrir carpeta de caché
+settings_folder_cache_open = Abrir carpeta almacén caché
 settings_folder_settings_open = Abrir carpeta de ajustes
 # Compute results
-compute_stopped_by_user = El usuario ha detenido la búsqueda
-compute_found_duplicates_hash_size = Se encontraron { $number_files } duplicados en { $number_groups } grupos que tomaron { $size }
-compute_found_duplicates_name = Se encontraron { $number_files } duplicados en { $number_groups } grupos
-compute_found_empty_folders = Se encontraron { $number_files } carpetas vacías
-compute_found_empty_files = Se encontraron { $number_files } archivos vacíos
+compute_stopped_by_user = La búsqueda ha sido detenida por el usuario.
+compute_found_duplicates_hash_size = Se han encontrado { $number_files } duplicados en { $number_groups } grupos que ocupan un espacio de { $size }
+compute_found_duplicates_name = Se han encontrado { $number_files } duplicados en { $number_groups } grupos
+compute_found_empty_folders = Se han encontrado { $number_files } carpetas vacías
+compute_found_empty_files = Se han encontrado { $number_files } archivos vacíos
 compute_found_big_files = { $number_files } archivos grandes encontrados
-compute_found_temporary_files = Se encontraron { $number_files } archivos temporales
-compute_found_images = Se encontraron { $number_files } imágenes similares en { $number_groups } grupos
-compute_found_videos = Se encontraron { $number_files } vídeos similares en { $number_groups } grupos
-compute_found_music = Se encontraron { $number_files } archivos de música similares en { $number_groups } grupos
-compute_found_invalid_symlinks = Se encontraron { $number_files } enlaces simbólicos no válidos
-compute_found_broken_files = Se encontraron { $number_files } archivos rotos
-compute_found_bad_extensions = Se encontraron { $number_files } archivos con extensiones no válidas
+compute_found_temporary_files = Se han encontrado { $number_files } de archivos temporales
+compute_found_images = Se han encontrado { $number_files } imágenes similares en { $number_groups } grupos
+compute_found_videos = Se han encontrado { $number_files } vídeos similares en { $number_groups } grupos
+compute_found_music = Se han encontrado { $number_files } archivos de música similares en { $number_groups } grupos
+compute_found_invalid_symlinks = Se han encontrado { $number_files } enlaces simbólicos no válidos
+compute_found_broken_files = Se han encontrado { $number_files } archivos rotos
+compute_found_bad_extensions = Se han encontrado { $number_files } archivos con extensiones no válidas
 # Progress window
 progress_scanning_general_file = Escaneando archivo { $file_number }
 progress_scanning_extension_of_files = Comprobando extensión de { $file_checked }/{ $all_files } archivo
@@ -396,10 +396,10 @@ progress_analyzed_full_hash = Se ha analizado el hash completo de { $file_checke
 progress_current_stage = Etapa actual:{ " " }
 progress_all_stages = Todas las etapas:{ " " }
 # Saving loading 
-saving_loading_saving_success = Configuración guardada en el archivo { $name }.
-saving_loading_saving_failure = Error al guardar los datos de configuración en el archivo { $name }.
+saving_loading_saving_success = La configuración ha sido guardada en el archivo { $name }.
+saving_loading_saving_failure = Se ha producido un error al guardar la configuración en el archivo { $name }.
 saving_loading_reset_configuration = La configuración actual fue borrada.
-saving_loading_loading_success = Configuración de la aplicación cargada correctamente.
+saving_loading_loading_success = La configuración de la aplicación ha sido correctamente cargada.
 saving_loading_invalid_string = Para la clave "{ $key }" se encontró un resultado inválido - "{ $result }" que no es una cadena.
 saving_loading_invalid_int = Para la clave "{ $key }" se encontró un resultado inválido - "{ $result }" que no es un entero.
 saving_loading_invalid_bool = Para la clave "{ $key }" se encontró un resultado inválido - "{ $result }" que no es un bool.
